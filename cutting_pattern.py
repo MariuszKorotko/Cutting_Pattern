@@ -11,7 +11,7 @@ class CuttingPattern(object):
         self.quantity = quantity_list
         # width of cut
         self.cut_width = cut_width / 1000
-        # list of sizes after single cut
+        # list of single pieces
         self.pieces = []
         # length of the log
         self.log_length = float(log_length)
@@ -21,10 +21,9 @@ class CuttingPattern(object):
         self.remaining = []
         # list with final cutting pattern
         self.final_pattern = [[]]
-        # final cutting pattern at string
-        # self.final_pattern_string = None
 
     def prepare_pieces(self):
+        """Prepare list of single pieces """
         self.pieces = []
         for j in range(len(self.size)):
             for i in range(self.quantity[j]):
