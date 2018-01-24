@@ -51,10 +51,15 @@ class CuttingPattern(object):
         return self.final_pattern
 
     def print_pattern(self):
+        file = open('cut_pattern.txt', 'w')
         self.final_pattern
         for i in range(len(self.final_pattern)):
             log_number = i + 1
-            print('Cutting pattern for log nr {} - {}'.format(
+            print('Cutting pattern - log nr {} - {}'.format(
                 log_number,
-                self.final_pattern[i])
-            )
+                self.final_pattern[i]))
+            file.write('Cutting pattern - log nr {} - {}\n'.format(
+                log_number,
+                self.final_pattern[i]))
+        file.write('Prepare {} logs!'.format(log_number))
+        return file
