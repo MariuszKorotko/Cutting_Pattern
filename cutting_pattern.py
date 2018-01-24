@@ -12,15 +12,15 @@ class CuttingPattern(object):
         # width of cut
         self.cut_width = cut_width / 1000
         # list of sizes after single cut
-        self.pieces = None
+        self.pieces = []
         # length of the log
-        self.log_length = log_length
+        self.log_length = float(log_length)
         # number of needed logs
-        self.logs = None
+        self.logs = 0
         # remaining after cutting
-        self.remaining = None
+        self.remaining = []
         # list with final cutting pattern
-        self.final_pattern = None
+        self.final_pattern = [[]]
         # final cutting pattern at string
         # self.final_pattern_string = None
 
@@ -36,7 +36,6 @@ class CuttingPattern(object):
         pattern."""
         self.pieces = pieces
         self.remaining = [self.log_length]
-        self.final_pattern = [[]]
         for element in sorted(self.pieces, reverse=True):
             if element < self.log_length:
                 for j, free_space in enumerate(self.remaining):
